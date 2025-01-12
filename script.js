@@ -79,6 +79,9 @@ function checkGameOver() {
     return;
   }
 
+  cells.forEach(cell => {
+    cell.classList.remove("hover");
+  })
   winMessage.textContent = `Draw!`;
   gameOverDiv.style.display = "block";
   gameOver = true;
