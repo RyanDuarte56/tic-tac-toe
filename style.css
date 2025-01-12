@@ -9,30 +9,42 @@ body {
   height: 100vh;
 }
 
+#turn-message-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15vh;
+}
+
+#turn-message {
+  font-size: 35px;
+  user-select: none;
+}
+
 #grid-div {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 25vh;
-  font-size: 60px;
+  padding-top: 10vh;
+  font-size: 65px;
 }
 
 #grid {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3, 125px);
+  grid-template-rows: repeat(3, 125px);
 }
 
 .cell {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   user-select: none;
 }
 
-.cell:hover {
+.cell.hover:hover {
   background-color: rgb(240, 240, 240);
+  cursor: pointer;
 }
 
 .cell:nth-child(1),
@@ -51,6 +63,11 @@ body {
 .cell:nth-child(5),
 .cell:nth-child(6) {
   border-bottom: 3px solid black;
+}
+
+/* As células vencedoras mudam para essa cor */
+.winner {
+  background-color: lightgreen;
 }
 
 #game-over-div {

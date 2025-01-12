@@ -1,3 +1,4 @@
+const turnMessage = document.getElementById("turn-message");
 const winMessage = document.getElementById("win-message");
 const gameOverDiv = document.getElementById("game-over-div");
 const newGameButton = document.getElementById("new-game-button");
@@ -6,7 +7,7 @@ const grid = document.getElementById("grid");
 // Criação do grid
 for (let i = 0; i < 9; i++) {
   const cell = document.createElement("div");
-  cell.classList.add("cell");
+  cell.classList.add("cell", "hover");
   grid.appendChild(cell);
 }
 
@@ -37,6 +38,7 @@ function handleClick(event) {
   // Alterna o jogador caso o jogo não tenha acabado
   if (!gameOver) {
     isPlayerX = !isPlayerX;
+    turnMessage.textContent = isPlayerX ? "Turn: X" : "Turn: O";
   }
 }
 
@@ -61,8 +63,11 @@ function checkGameOver() {
         board[a] !== "") {
           winMessage.textContent = `Player ${board[a]} wins!`;
           combination.forEach(index => {
-            cells[index].style.backgroundColor = "lightgreen";
+            cells[index].classList.add("winner");
           });
+          cells.forEach(cell => {
+            cell.classList.remove("hover");
+          })
           gameOverDiv.style.display = "block";
           gameOver = true;
           return;
@@ -82,10 +87,12 @@ function checkGameOver() {
 function resetGame() {
   cells.forEach(cell => {
     cell.textContent = "";
-    cell.style.backgroundColor = "white";
+    cell.classList.remove("winner");
+    cell.classList.add("hover");
   })
 
   isPlayerX = true;
   gameOver = false;
   gameOverDiv.style.display = "none";
+  turnMessage.textContent = "Turn: X";
 }
