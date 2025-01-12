@@ -2,15 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial;
 }
 
 body {
-  font-family: Arial;
-  font-size: 60px;
   height: 100vh;
+}
+
+#grid-div {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 25vh;
+  font-size: 60px;
 }
 
 #grid {
@@ -47,4 +51,37 @@ body {
 .cell:nth-child(5),
 .cell:nth-child(6) {
   border-bottom: 3px solid black;
+}
+
+#game-over-div {
+  display: none;
+}
+
+#win-message-div,
+#button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+#win-message {
+  font-size: 30px;
+  user-select: none;
+}
+
+#new-game-button {
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  user-select: none;
+}
+
+#new-game-button:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+#new-game-button:active {
+  background-color: rgb(220, 220, 220);
 }
