@@ -55,6 +55,7 @@ function checkGameOver() {
     [2, 4, 6]  // Diagonal secundária
   ];
 
+  // Não tem break após achar uma combinação vencedora, pois há o caso de borda de haver duas ao mesmo tempo
   winningCombinations.forEach(combination => {
     const [a, b, c] = combination;
     
@@ -70,12 +71,11 @@ function checkGameOver() {
           })
           gameOverDiv.style.display = "block";
           gameOver = true;
-          return;
         }
   });
 
-  // Se alguma célula ainda não estiver preenchida, o jogo não acabou. Se não teve um vencedor e todas as células foram preenchidas, foi um empate
-  if (board.some(content => content === "")) {
+  // Se não deu game over e todas as células estão preenchidas, foi empate
+  if (board.some(content => content === "") || gameOver) {
     return;
   }
 
