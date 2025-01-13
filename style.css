@@ -26,13 +26,13 @@ body {
   align-items: center;
   justify-content: center;
   padding-top: 10vh;
-  font-size: 65px;
 }
 
 #grid {
   display: grid;
   grid-template-columns: repeat(3, 125px);
   grid-template-rows: repeat(3, 125px);
+  font-size: 65px;
 }
 
 .cell {
@@ -101,4 +101,40 @@ body {
 
 #new-game-button:active {
   background-color: rgb(220, 220, 220);
+}
+
+@media (max-width: 400px) {
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    font-size: 55px;
+  }
+}
+
+@media (min-width: 800px) {
+  #turn-message {
+    font-size: 55px;
+    user-select: none;
+  }
+  
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+    font-size: 95px;
+  }
+
+  #win-message {
+    font-size: 55px;
+    user-select: none;
+  }
+
+  #new-game-button {
+    font-size: 35px;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    user-select: none;
+  }
 }
